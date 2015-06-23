@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "mqtt"
   spec.add_runtime_dependency "fluentd"
-  spec.add_runtime_dependency "yajl-ruby"
-  spec.add_runtime_dependency "test-unit"
+  #spec.add_runtime_dependency "yajl-ruby"
+  spec.add_development_dependency "test-unit"
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
 end
