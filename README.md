@@ -27,6 +27,9 @@ MQTT topic is set "#".
   type mqtt
   bind 127.0.0.1
   port 1883
+
+  # username user1
+  # password pass1
 </source>
 
 ```
