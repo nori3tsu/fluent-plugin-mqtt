@@ -30,6 +30,7 @@ MQTT topic is set "#".
 
   # username user1
   # password pass1
+  # client_id 1
 </source>
 
 ```

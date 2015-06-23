@@ -10,8 +10,9 @@ module Fluent
 
     config_param :port, :integer, :default => 1883
     config_param :bind, :string, :default => '127.0.0.1'
-    config_param :username, :string
-    config_param :password, :string
+    config_param :username, :string, :default => nil
+    config_param :password, :string, :default => nil
+    config_param :client_id, :string, :default => nil
     config_param :topic, :string, :default => '#'
     config_param :format, :string, :default => 'none'
 
@@ -19,11 +20,6 @@ module Fluent
 
     def configure(conf)
       super
-      @bind ||= conf['bind']
-      @topic ||= conf['topic']
-      @port ||= conf['port']
-      @username ||= conf['username']
-      @password ||= conf['password']
 
       configure_parser(conf)
     end
@@ -43,7 +39,8 @@ module Fluent
       @connect = MQTT::Client.connect({remote_host: @bind,
                                        remote_port: @port,
                                        username: @username,
-                                       password: @password})
+                                       password: @password,
+                                       client_id: @client_id})
       @connect.subscribe(@topic)
 
       @thread = Thread.new do
